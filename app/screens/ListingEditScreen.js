@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import * as Yup from 'yup';
-import {AppForm, AppFormField, AppFormPicker, SubmitButton} from '../components/forms';
+import {Form, FormField, FormPicker, SubmitButton} from '../components/forms';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
@@ -15,14 +16,20 @@ const categories = [
   {
     label: 'Furniture',
     value: 1,
+    backgroundColor: 'red',
+    icon: 'apps',
   },
   {
     label: 'Clothing',
     value: 2,
+    backgroundColor: 'green',
+    icon: 'email',
   },
   {
     label: 'Cameras',
     value: 3,
+    backgroundColor: 'blue',
+    icon: 'lock',
   },
 ];
 
@@ -30,15 +37,28 @@ function ListingEditScreen() {
   const [category, setCategory] = useState(categories[0]);
   return (
     <Screen style={styles.container}>
-      <AppForm
+      <Form
         initialValues={{title: '', price: '', description: '', category: null}}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
       >
-        <AppFormField maxLength={255} name="title" placeholder="Title" />
-        <AppFormField keyboardType="numeric" maxLength={8} name="price" placeholder="Price" />
-        <AppFormPicker items={categories} name="category" placeholder="Category" />
-        <AppFormField
+        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
+          keyboardType="numeric"
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+          width={120}
+        />
+        <FormPicker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder="Category"
+          width="50%"
+        />
+        <FormField
           maxLength={255}
           multiline
           name="description"
@@ -46,7 +66,7 @@ function ListingEditScreen() {
           placeholder="Description"
         />
         <SubmitButton title="Save" />
-      </AppForm>
+      </Form>
     </Screen>
   );
 }

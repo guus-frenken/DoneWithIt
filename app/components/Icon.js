@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import defaultStyles from '../config/styles';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
+import defaultStyles from '../config/styles';
 
 function Icon({
   name,
@@ -11,14 +11,15 @@ function Icon({
 }) {
   return (
     <View
-      style={{
-        width: size,
-        height: size,
-        borderRadius: size / 2,
-        backgroundColor,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+      style={[
+        styles.icon,
+        {
+          width: size,
+          height: size,
+          borderRadius: size / 2,
+          backgroundColor,
+        },
+      ]}
     >
       <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} />
     </View>
@@ -26,7 +27,10 @@ function Icon({
 }
 
 const styles = StyleSheet.create({
-  xx: {},
+  icon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default Icon;
