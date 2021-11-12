@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
-import defaultStyles from '../config/styles';
+import {StyleSheet} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
+import defaultStyles from '../../config/styles';
 
 function ListItemDeleteAction({onPress}) {
   return (

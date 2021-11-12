@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import defaultStyles from '../config/styles';
+import defaultStyles from '../../config/styles';
 
 function ListItemSeparator() {
   return <View style={styles.separator} />;
