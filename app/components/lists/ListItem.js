@@ -35,6 +35,7 @@ function ListItem({title, subTitle, image, IconComponent, onPress, renderRightAc
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: defaultStyles.colors.white,
     flexDirection: 'row',
     padding: 15,
     alignItems: 'center',
