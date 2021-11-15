@@ -24,7 +24,7 @@ const menuItems = [
   },
 ];
 
-function AccountScreen({navigation}) {
+function MyAccountScreen({navigation}) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AccountScreen;
+export default MyAccountScreen;

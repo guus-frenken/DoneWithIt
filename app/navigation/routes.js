@@ -1,5 +1,5 @@
 export default Object.freeze({
-  ACCOUNT: 'Account',
+  MY_ACCOUNT: 'My Account',
   LISTING_DETAILS: 'ListingDetails',
   LISTING_EDIT: 'ListingEdit',
   LISTINGS: 'Listings',
