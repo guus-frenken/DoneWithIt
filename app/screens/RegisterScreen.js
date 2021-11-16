@@ -29,7 +29,7 @@ function RegisterScreen() {
         setError(result.data.error);
       } else {
         setError('An unexpected error occurred.');
-        console.log(result);
+        console.log('registration error:\n', result);
       }
       return;
     }

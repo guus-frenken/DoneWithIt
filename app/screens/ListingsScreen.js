@@ -31,6 +31,7 @@ function ListingsScreen({navigation}) {
         <FlatList
           data={listings}
           keyExtractor={listing => listing.id}
+          showsVerticalScrollIndicator={false}
           renderItem={({item}) => (
             <Card
               title={item.title}
