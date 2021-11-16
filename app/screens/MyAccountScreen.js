@@ -5,6 +5,7 @@ import {ListItem, ListItemSeparator} from '../components/lists';
 import Screen from '../components/Screen';
 import routes from '../navigation/routes';
 import defaultStyles from '../config/styles';
+import useAuth from '../auth/useAuth';
 
 const menuItems = [
   {
@@ -25,12 +26,14 @@ const menuItems = [
 ];
 
 function MyAccountScreen({navigation}) {
+  const {user, logOut} = useAuth();
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Guus Frenken"
-          subTitle="g.frenken@qteco.nl"
+          title={user.name}
+          subTitle={user.email}
           image={require('../assets/profilepic.png')}
           style={styles.listItem}
         />
@@ -56,6 +59,7 @@ function MyAccountScreen({navigation}) {
         title="Logout"
         style={styles.listItem}
         IconComponent={<Icon name="logout" backgroundColor={defaultStyles.colors.warning} />}
+        onPress={() => logOut()}
       />
     </Screen>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import * as Yup from 'yup';
 import {Form, FormField, FormPicker, SubmitButton} from '../components/forms';
@@ -8,9 +8,6 @@ import Screen from '../components/Screen';
 import UploadScreen from './UploadScreen';
 import useLocation from '../hooks/useLocation';
 import listingsApi from '../api/listings';
-import useApi from '../hooks/useApi';
-import {useState} from 'react/cjs/react.development';
-import {requestForegroundPermissionsAsync} from 'expo-location';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
