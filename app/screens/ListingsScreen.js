@@ -26,7 +26,6 @@ function ListingsScreen({navigation}) {
           <Button title="Retry" onPress={loadListings} />
         </>
       )}
-      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={listing => listing.id}
@@ -44,6 +43,7 @@ function ListingsScreen({navigation}) {
           loadListings();
         }}
       />
+      <ActivityIndicator visible={loading} />
     </Screen>
   );
 }
