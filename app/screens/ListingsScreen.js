@@ -11,6 +11,7 @@ import listingsApi from '../api/listings';
 import useApi from '../hooks/useApi';
 
 function ListingsScreen({navigation}) {
+  const [refreshing, setRefreshing] = useState(false);
   const {data: listings, error, loading, request: loadListings} = useApi(listingsApi.getListings);
 
   useEffect(() => {
@@ -38,6 +39,10 @@ function ListingsScreen({navigation}) {
             thumbnailUrl={item.images[0].thumbnailUrl}
           />
         )}
+        refreshing={refreshing}
+        onRefresh={() => {
+          loadListings();
+        }}
       />
     </Screen>
   );
